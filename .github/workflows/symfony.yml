@@ -45,3 +45,9 @@ jobs:
       env:
         DATABASE_URL: sqlite:///%kernel.project_dir%/data/test.sqlite
       run: vendor/bin/phpunit
+    - name: Generate coverage badge
+      use: timkrase/phpunit-coverage-badge@v1.2.0
+      with:
+        coverage_badge_path: 'badge-coverage.svg'
+        push_badge: true
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
